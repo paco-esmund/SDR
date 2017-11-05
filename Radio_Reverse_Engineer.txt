@@ -1,0 +1,21 @@
+tutorial for SDR reverse radio engineering
+
+Radio Replay
+Visit fcc.io/ and search fccid // Open GQRX, scan spectrum for frequency
+Open GRC, pipe osmocom source into file sync
+	Set proper base frq, bandwidth, sample rate, take into account DC offset
+	In another file, pipe *.sink output into osmocom sink,  proper parameters
+
+Reverse Radio Engineer
+Visit fcc.io/ and search fccid // Open GQRX, scan spectrum for frequency 
+Open osmocom_fft, record into *.cfile
+Open *.cfile in inspectrum
+Vary settings to attain proper display
+Open screenruler and measure x number of smalles pulses
+Compare length to time on the side of display
+Divide t of n pulses by n
+Divide 1 sec by t of 1 pulse
+Use t of 1 pulse to determine baud
+Decode entire pulse, compare if other transmissions available
+Deduce preamble/sync
+Execute sudo ./rfcat -r
